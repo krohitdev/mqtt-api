@@ -17,10 +17,10 @@ router.post('/', (req, res, next)=>{
 
     var options = {
         port: 1883,
-        host: 'mqtt://18.219.59.34',
+        host: '', //hostname
         clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
-        username: 'admin',
-        password: 'admin123',
+        username: '', //username
+        password: '', //password
         keepalive: 60,
         reconnectPeriod: 1000,
         protocolId: 'MQIsdp',
@@ -29,7 +29,7 @@ router.post('/', (req, res, next)=>{
         encoding: 'utf8'
     };
     
-    var client = mqtt.connect('mqtt://18.219.59.34',options);
+    var client = mqtt.connect('',options); //hostname
 
     client.on('connect',function(){
         client.publish(topic.name, topic.message);
